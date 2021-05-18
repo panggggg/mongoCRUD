@@ -18,8 +18,8 @@ mongo_db._connect()
 
 #### insert one ####
 # data = {
-#     "_id": "0005",
-#     "id": "0005",
+#     "_id": "0006",
+#     "id": "0006",
 #     "Username": "Pawornwan",
 #     "Email": "p.picczy@gmail.com",
 #     "Tel": "0614696233",
@@ -61,16 +61,21 @@ mongo_db._connect()
 #### find one ####
 # mongo_db.find_one("0002")
 
+#### update ####
+# query = "0007"
+# new_data = {"Username": "Peeranat"}
+# mongo_db.update(query, new_data)
+
 
 #### update one ####
-# query = "0002"
-# new_data = {"age": "21"}
+# query = "0007"
+# new_data = {"Email": "peeranat@gmail.com", "Tel": "0959243869", "age": "22"}
 # mongo_db.update_one(query, new_data)
 
-# ยังทำไม่ได้นะ
+
 #### update many ####
-# pre_data = {"Email": "p.picczy@gmail.com"}
-# new_data = {"Email": "test@gmail.com"}
+# pre_data = {"Username": "Peeranat"}
+# new_data = {"Username": "Peenat"}
 # mongo_db.update_many(pre_data, new_data)
 
 
