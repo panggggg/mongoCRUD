@@ -1,5 +1,4 @@
 import pymongo
-from pymongo import results
 
 
 class MongoDB:
@@ -46,7 +45,9 @@ class MongoDB:
 
     def update(self, id, data):
         print("[#] Update")
-        result = self.connection.update({"_id": id}, {"$set": data}, upsert=True)
+        result = self.connection.update(
+            {"_id": id}, {"$set": data}, upsert=True
+        )  # upsert Creates a new document if no documents match the query
         print(result)
         return result
 
@@ -58,9 +59,8 @@ class MongoDB:
 
     def update_many(self, pre_data, new_data):
         print("[#] Update many")
-        update_many = self.connection.update_many(
-            {"pre_data": pre_data}, {"$set": new_data}
-        )
+        update_many = self.connection.update_many(pre_data, {"$set": new_data})
+        print(update_many)
         return update_many
 
     def delete_one(self, id):
