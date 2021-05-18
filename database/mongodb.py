@@ -1,4 +1,5 @@
 import pymongo
+from pymongo import results
 
 
 class MongoDB:
@@ -43,16 +44,22 @@ class MongoDB:
         print(find_one)
         return list(find_one)
 
+    def update(self, id, data):
+        print("[#] Update")
+        result = self.connection.update({"_id": id}, {"$set": data}, upsert=True)
+        print(result)
+        return result
+
     def update_one(self, id, data):
         print("[#] Update one")
         update_one = self.connection.update_one({"_id": id}, {"$set": data})
         print(update_one)
         return update_one
 
-    def update_many(self, pre_data, data):
+    def update_many(self, pre_data, new_data):
         print("[#] Update many")
         update_many = self.connection.update_many(
-            {"pre_data": pre_data}, {"$set": data}
+            {"pre_data": pre_data}, {"$set": new_data}
         )
         return update_many
 
